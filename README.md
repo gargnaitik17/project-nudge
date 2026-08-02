@@ -1,21 +1,43 @@
-<<<<<<< HEAD
-# nudge_app
+# Nudge 💰
 
-A new Flutter project.
+Nudge is a smart personal money-management application designed to help users track, understand, and control their spending.
 
-## Getting Started
+## 🎯 Vision
 
-This project is a starting point for a Flutter application.
+Nudge aims to act like a financial friend — helping users make better spending decisions instead of simply recording transactions.
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Core Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Track income and expenses
+- Monitor account balance
+- See balance before and after spending
+- Categorize transactions
+- Track money lent to friends
+- Track money borrowed
+- Monitor spending patterns
+- Provide intelligent spending nudges
+- Help users reduce unnecessary spending
+- AI-powered financial guidance planned for future versions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# project-nudge
->>>>>>> 2fc0142fb91d64abd923675e0bd3c9dcd2bb8a68
+## 🛠️ Technology
+
+- Flutter
+- Dart
+- Android
+- iOS
+- Git & GitHub
+
+## 📁 Project Structure
+
+```text
+nudge_app/
+├── android/
+├── ios/
+├── lib/
+├── linux/
+├── macos/
+├── test/
+├── web/
+├── windows/
+├── pubspec.yaml
+└── README.md
