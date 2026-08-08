@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart';
-
+import 'core/theme/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -763,17 +763,38 @@ class _NudgeAppState extends State<NudgeApp> {
 
   @override
   Widget build(BuildContext context) {
-    if (loading) {
-      return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
-      );
-    }
+  if (loading) {
+  final isDark = darkMode;
 
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: Colors.white,
+      useMaterial3: true,
+    ),
+    darkTheme: ThemeData(
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: const Color(0xFF171A1F),
+      useMaterial3: true,
+    ),
+    themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+    home: Scaffold(
+      backgroundColor:
+          isDark ? const Color(0xFF171A1F) : Colors.white,
+      body: Center(
+        child: Image.asset(
+  isDark
+      ? 'assets/images/nudge_logo_dark.png'
+      : 'assets/images/nudge_logo_light.png',
+  width: 330,
+  fit: BoxFit.contain,
+),
+        ),
+      ),
+    )
+;
+}
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Nudge',
@@ -2109,9 +2130,29 @@ class _NudgeHomePageState extends State<NudgeHomePage> {
           .toStringAsFixed(0),
     );
 
-    String occupation =
-        profile['occupation']?.toString() ??
-            'Student';
+   String occupation =
+    profile['occupation']?.toString().trim() ?? 'Student';
+
+const validOccupations = [
+  'Student',
+  'Working',
+  'Business',
+  'Other',
+];
+
+if (!validOccupations.contains(occupation)) {
+  final normalized = occupation.toLowerCase();
+
+  if (normalized == 'student') {
+    occupation = 'Student';
+  } else if (normalized == 'working') {
+    occupation = 'Working';
+  } else if (normalized == 'business') {
+    occupation = 'Business';
+  } else {
+    occupation = 'Other';
+  }
+}
 
     bool saving = false;
 
